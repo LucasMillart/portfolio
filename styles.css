@@ -1,0 +1,128 @@
+*, *::after, *::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    padding:10px;
+    background-color: #1A2A6C;
+    position: fixed;
+}
+header h1{
+    color:white;
+    font-size: 25px;
+}
+nav{
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+nav a {
+    color: white;
+    font-family: "Roboto";
+    padding: 15px 10px;
+    text-decoration: none;
+}
+nav a:hover{
+    background-color:#D4AF37;
+    padding: 15px 10px;
+    text-align: center;
+}
+.firstSection {
+    width: auto;
+    height: auto;
+    min-height:300px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #EAEAEA;
+    padding-top: 50px;
+}
+.firstSection h1, .firstSection p{
+    color: #333333;
+    margin: 7px;
+    font-family: "Roboto",sans-serif;
+}
+.firstSection h1{
+    font-size: 30px;
+}
+.firstSection p{
+    font-size: 16px;
+}
+div a {
+    text-decoration: none;
+}
+.myProject{
+    background-color: white;
+    width:100%;
+    height:auto;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 30px;
+    grid-template-rows: repeat(auto,1fr);
+    justify-content: center;
+    align-items: center;
+    padding: 30px 50px;
+}
+.project{
+    background-color: #EAEAEA;
+    height: auto;
+    text-align: center;
+}
+.project img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+
+}
+.project h2{
+    color:#1A2A6C;
+    font-family: "Roboto",sans-serif;
+    font-size: 20px;
+    margin: 10px;
+}
+.myProjects h1{
+    text-align: center;
+    color: #1A2A6C;
+    font-family: "Roboto",sans-serif;
+    font-size: 40px;
+    margin: 30px;
+}
+.myProjects{
+    margin-bottom: 50px;
+    margin-top: 50px
+}
+.aboutMe{
+    text-align: center;
+}
+.social-icons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    background-color: #EAEAEA;
+    height: 100px;
+}
+.social-icons a {
+    color: black;
+    font-size: 30px;
+}
+
+@media screen and (max-width: 900px){
+    .myProject{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+@media screen and (max-width: 500px){
+    .myProject{
+        grid-template-columns: repeat(1,1fr);
+    }
+}
