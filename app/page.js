@@ -1,103 +1,132 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="relative">
+      {/* Background Video */}
+      <div className="fixed inset-0 -z-10">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="object-cover w-full h-full"
+        >
+          <source src="/planet-of-lana-moewalls-com.mp4" type="video/mp4" />
+        </video>
+      </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+      <main className="min-h-screen p-8 md:p-24 max-w-6xl mx-auto">
+        {/* Header / Hero Section */}
+        <header className="mb-20 text-center">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white drop-shadow-lg animate-zoom">
+            Développeur Full Stack
+          </h1>
+          <p className="text-xl md:text-2xl text-gray-200 drop-shadow-md">
+            Création d&apos;applications web modernes et intuitives
+          </p>
+        </header>
+
+        {/* About Me Section */}
+        <section id="about" className="mb-20 p-6 rounded-lg shadow-lg bg-black/25 hover:shadow-xl transition-shadow">
+          <h2 className="text-3xl font-bold mb-6 border-b pb-2 text-white">À propos de moi</h2>
+          <div className="flex flex-col md:flex-row gap-8">
+            <div className="md:w-1/3">
+              <div className="aspect-square relative bg-gray-200 bg-opacity-20 rounded-lg overflow-hidden">
+                {/* Remplacer avec votre photo */}
+                {/* <Image 
+                  src="/votre-photo.jpg"
+                  alt="Votre photo"
+                  fill
+                  className="object-cover"
+                /> */}
+                <div className="flex items-center justify-center h-full">
+                  <p className="text-gray-400">Votre photo</p>
+                </div>
+              </div>
+            </div>
+            <div className="md:w-2/3">
+              <p className="mb-4 text-gray-200">
+                Présentez-vous ici. Parlez de votre parcours, de vos expériences et de ce qui vous passionne dans le développement.
+              </p>
+              <p className="text-gray-200">
+                Expliquez ce que vous pouvez apporter à des projets et ce qui vous différencie des autres développeurs.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Technologies Section */}
+        <section id="technologies" className="mb-20 p-6 rounded-lg bg-black/25 shadow-lg hover:shadow-xl transition-shadow">
+          <h2 className="text-3xl font-bold mb-6 border-b pb-2 text-white">Technologies</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {/* Exemples de technologies - à personnaliser */}
+            {["JavaScript", "React", "Node.js", "Next.js", "MongoDB", "Tailwind CSS", "Java", "Python"].map((tech) => (
+              <div key={tech} className="bg-gray-800/50 p-4 rounded-4xl text-center hover:shadow-md transition-shadow text-gray-200 font-medium">
+                {tech}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Projects Section */}
+        <section id="projects" className="p-6 rounded-lg hover:shadow-xl transition-shadow ">
+          <h2 className="text-3xl font-bold mb-6 border-b pb-2 text-white">Mes projets</h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Projet ChatBot */}
+            <div className="bg-black bg-opacity-50 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+              <div className="h-48 bg-gray-200 bg-opacity-20 relative border-2 border-black">
+                <div className="flex items-center justify-center h-full">
+                  <Link
+                    href="https://ai-chatbot-lm.vercel.app/">
+                    <Image
+                      src="/chatgpt-chatbot.png"
+                      alt="Image du chatbot"
+                      fill
+                      className="w-full h-auto object-cover"
+                    />
+                  </Link>
+                </div>
+              </div>
+              <div className="bg-white p-6 flex flex-col justify-center">
+                <h3 className="text-xl font-bold mb-2 text-black">First AI chatbot</h3>
+                <p className="text-black mb-4">Création d&apos;un chatbot avec Llama</p>
+                <div className="flex gap-3">
+                  <Link href="https://ai-chatbot-lm.vercel.app/" className="text-blue-500 hover:underline">Demo</Link>
+                  <Link href="https://github.com/LucasMillart/ai-chatbot" className="text-blue-500 hover:underline">Code source</Link>
+                </div>
+              </div>
+            </div>
+            {/* Projet Snake */}
+            <div className="bg-black bg-opacity-50 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+              <div className="h-48 bg-gray-200 bg-opacity-20 relative border-2 border-black">
+                <div className="flex items-center justify-center h-full">
+                  <Link
+                    href="https://ai-chatbot-lm.vercel.app/">
+                    <Image
+                      src="/chatgpt-chatbot.png"
+                      alt="Image du jeux snake"
+                      fill
+                      className="w-full h-auto object-cover"
+                    />
+                  </Link>
+                </div>
+              </div>
+              <div className="bg-white p-6 flex flex-col justify-center">
+                <h3 className="text-xl font-bold mb-2 text-black">Jeux Snake</h3>
+                <p className="text-black mb-4">Création d&apos;un jeux snake avec NextJs</p>
+                <div className="flex gap-3">
+                  <Link href="https://ai-chatbot-lm.vercel.app/" className="text-blue-500 hover:underline">Demo</Link>
+                  <Link href="https://github.com/LucasMillart/ai-chatbot" className="text-blue-500 hover:underline">Code source</Link>
+                </div>
+              </div>
+            </div>
+
+            {/* Ajoutez d'autres projets de la même façon */}
+          </div>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
   );
 }
