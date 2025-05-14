@@ -28,15 +28,14 @@ export default function Home() {
           </p>
         </header>
 
-        {/* About Me Section */}
+        {/* Section à propos de moi */}
         <section id="about" className="mb-20 p-6 rounded-lg shadow-lg bg-black/25 hover:shadow-xl transition-shadow">
           <h2 className="text-3xl font-bold mb-6 border-b pb-2 text-white">À propos de moi</h2>
           <div className="flex flex-col md:flex-row gap-8">
             <div className="md:w-1/3">
               <div className="aspect-square relative bg-gray-200 bg-opacity-20 rounded-lg overflow-hidden">
-                {/* Remplacer avec votre photo */}
                 {/* <Image 
-                  src="/votre-photo.jpg"
+                  src="/ma-photo.jpg"
                   alt="Votre photo"
                   fill
                   className="object-cover"
@@ -61,7 +60,6 @@ export default function Home() {
         <section id="technologies" className="mb-20 p-6 rounded-lg bg-black/25 shadow-lg hover:shadow-xl transition-shadow">
           <h2 className="text-3xl font-bold mb-6 border-b pb-2 text-white">Technologies</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {/* Exemples de technologies - à personnaliser */}
             {["JavaScript", "React", "Node.js", "Next.js", "MongoDB", "Tailwind CSS", "Java", "Python"].map((tech) => (
               <div key={tech} className="bg-gray-800/50 p-4 rounded-4xl text-center hover:shadow-md transition-shadow text-gray-200 font-medium">
                 {tech}
@@ -122,8 +120,6 @@ export default function Home() {
                 </div>
               </div>
             </div>
-
-            {/* Ajoutez d'autres projets de la même façon */}
           </div>
         </section>
       </main>
