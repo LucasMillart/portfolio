@@ -1,54 +1,56 @@
-# 🎨 Frontend Application
+# Frontend Application
 
-Next.js 15 portfolio interface with DaisyUI components.
+Next.js App Router interface for browsing projects and viewing project backlog timelines.
 
-## 📋 Pages
+## Routes
 
-- `/` — Home page with portfolio overview
-- `/projects` — Projects grid with search/filtering
-- `/projects/[id]` — Project details with backlog timeline
-- `/all-backlogs` — Global backlogs view with filters
-- `/stats` — Statistics dashboard
+- `/` -> re-exports the projects page.
+- `/projects` -> project list page.
+- `/project/[id]` -> project detail page with latest backlog updates.
 
-## 🎯 Components
+Note: `/all-backlogs` and `/stats` are not implemented in the current app router tree.
 
-- `Navbar` — Navigation with theme toggle
-- `ProjectCard` — Reusable project card
-- `TimelineView` — Vertical timeline for backlog changes
-- `ThemeToggle` — Light/dark mode switcher
-- `ThemeInitializer` — Theme persistence
+## Main Components
 
-## 🎨 Design System
+- `app/projects/components/ProjectsHeader.tsx`
+- `app/projects/components/ProjectsSidebar.tsx`
+- `app/projects/components/ProjectsGrid.tsx`
+- `app/projects/components/ProjectsFooter.tsx`
+- `app/components/TimelineView.tsx`
+- `app/components/ThemeToggle.tsx`
+- `app/components/ThemeInitializer.tsx`
 
-**Theme**: "Curated Canvas"
-- Light mode: Warm, muted colors
-- Dark mode: High contrast, sophisticated palette
+## Styling and Theme
 
-**DaisyUI Components Used**:
-- Navbar, Card, Hero, Timeline, Stats, Badge, Button, Divider, etc.
+- Tailwind CSS v4 + daisyUI 5
+- Custom themes in `app/globals.css`:
+  - `curatedcanvas` (light)
+  - `curatedcanvasdark` (dark)
 
-## ⚙️ Configuration
+Theme behavior:
 
-- `globals.css` — Tailwind v4 + DaisyUI themes
-- `tailwind.config.ts` — Tailwind configuration
-- `next.config.ts` — Next.js configuration
+- Theme is stored in `localStorage`.
+- Stored values are validated against allowed theme names.
 
-## 🌐 API Integration
+## Environment Variables
 
-Frontend fetches from backend:
+Create `frontend/.env.local` (or copy from `frontend/.env.example`):
+
+```env
+NEXT_PUBLIC_API_URL=http://localhost:5000/api
 ```
-NEXT_PUBLIC_API_URL=http://localhost:5000
-```
 
-## 🚀 Start Development
+The app uses this base URL for API fetches (for example `/projects`, `/backlogs/project/:id`).
+
+## Run
 
 ```bash
 npm run dev
 ```
 
-Runs on `http://localhost:3000`
+App URL: `http://localhost:3000`
 
-## 🔄 Build & Deploy
+## Build
 
 ```bash
 npm run build

@@ -1,47 +1,87 @@
-# 📊 Portfolio Application
+# Portfolio
 
-A modern, full-stack portfolio showcasing projects with backlog timelines and statistics.
+Full-stack portfolio platform with project catalog and backlog timeline tracking.
 
-## 🚀 Quick Start
+## What This Repository Contains
 
-### Frontend
-```bash
-cd frontend
-npm install
-npm run dev
-# Opens http://localhost:3000
-```
+- `frontend`: Next.js app (App Router, React 19, TypeScript, Tailwind v4, daisyUI 5)
+- `backend`: Express API with MongoDB + Mongoose
+- `.github`: repository instructions and workflow conventions
 
-### Backend
+## Documentation Map
+
+- Architecture: [ARCHITECTURE.md](./ARCHITECTURE.md)
+- Structure: [PROJECT-STRUCTURE.md](./PROJECT-STRUCTURE.md)
+- Frontend details: [frontend/README.md](./frontend/README.md)
+- Backend API details: [backend/README.md](./backend/README.md)
+
+## Quick Start
+
+Prerequisites:
+
+- Node.js 20+
+- npm 10+
+- MongoDB instance (local or cloud)
+
+1. Install dependencies
+
 ```bash
 cd backend
 npm install
-# Add MONGODB_URI to .env
+cd ../frontend
+npm install
+```
+
+2. Configure environment files
+
+Backend `.env` (from `backend/.env.example`):
+
+```env
+MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/portfolio
+PORT=5000
+CORS_ORIGIN=http://localhost:3000
+NODE_ENV=development
+```
+
+Frontend `.env.local` (from `frontend/.env.example`):
+
+```env
+NEXT_PUBLIC_API_URL=http://localhost:5000/api
+```
+
+3. Run backend
+
+```bash
+cd backend
 npm run dev
-# Runs on http://localhost:5000
 ```
 
-## 📁 Project Structure
+4. Run frontend
 
-```
-Portfolio/
-├── frontend/        # Next.js 15 + React 19 + TypeScript + DaisyUI
-├── backend/         # Express.js + MongoDB + Mongoose
-└── .github/         # Configuration & instructions
+```bash
+cd frontend
+npm run dev
 ```
 
-## 🎨 Design System
+5. Open app
 
-- **Theme**: "Curated Canvas" (light & dark modes)
-- **UI Library**: DaisyUI 5 with custom theme
-- **Colors**: Primary (#914d00), Secondary (#4a7c9e), Accent (#b85c75)
+- Frontend: `http://localhost:3000`
+- Backend health: `http://localhost:5000/api/health`
 
-## 📚 API Endpoints
+## Runtime Behavior
 
-See [backend/README.md](./backend/README.md) for full API documentation.
+- `/` serves the projects experience through `app/page.tsx` re-export.
+- `/projects` fetches projects from `GET /api/projects`.
+- `/project/[id]` fetches backlog detail from `GET /api/backlogs/project/:projectId`.
 
-## 🛠️ Tech Stack
+## API Surface (Current)
 
-- **Frontend**: Next.js 15, React 19, TypeScript, Tailwind CSS v4, DaisyUI
-- **Backend**: Express.js 5.2, MongoDB, Mongoose
-- **Features**: Project management, backlog tracking, statistics, theme toggle
+- `GET /api/health`
+- Projects: `GET /api/projects`, `GET /api/projects/:id`, `POST /api/projects`, `PUT /api/projects/:id`, `DELETE /api/projects/:id`
+- Backlogs: `GET /api/backlogs`, `GET /api/backlogs/project/:projectId`, `POST /api/backlogs`, `POST /api/backlogs/:backlogId/items`, `PUT /api/backlogs/:backlogId/items/:itemId`, `DELETE /api/backlogs/:backlogId/items/:itemId`
+
+## Operational Notes
+
+- Backend startup fails fast if `MONGODB_URI` is missing.
+- CORS allowed origin is controlled by `CORS_ORIGIN`.
+- Frontend theme is persisted in `localStorage` with allowed-theme validation.

@@ -1,86 +1,99 @@
-# 🔧 Backend API
+# Backend API
 
-Express.js + MongoDB REST API for portfolio management.
+Express + MongoDB REST API for projects and backlogs.
 
-## 📌 Environment Setup
+## Environment Setup
 
-Create `.env` file:
+Create `backend/.env` (or copy from `backend/.env.example`):
 
-```
+```env
 MONGODB_URI=mongodb+srv://user:password@cluster.mongodb.net/portfolio
 PORT=5000
+CORS_ORIGIN=http://localhost:3000
+NODE_ENV=development
 ```
 
-## 🔌 API Endpoints
+Important:
 
-### Projects
+- `MONGODB_URI` is required. Server startup fails if missing.
+- `CORS_ORIGIN` controls allowed frontend origin.
 
-- `GET /api/projects` — Get all projects
-- `GET /api/projects/:id` — Get project details
-- `POST /api/projects` — Create project
-- `PUT /api/projects/:id` — Update project
-- `DELETE /api/projects/:id` — Delete project
-
-### Backlogs
-
-- `GET /api/backlogs` — Get all backlogs
-- `GET /api/backlogs/project/:projectId` — Get backlog for a project
-- `POST /api/backlogs` — Create backlog
-- `PUT /api/backlogs/:id` — Update backlog
-- `DELETE /api/backlogs/:id` — Delete backlog
-
-### Statistics
-
-- `GET /api/stats` — Get portfolio statistics
-
-## 📊 Database Models
-
-### Project
-
-```javascript
-{
-  name: String,
-  description: String,
-  imageUrl: String,
-  videoUrl: String,
-  technologies: [String],
-  status: String, // Planning, In Progress, Completed, On Hold
-  startDate: Date,
-  endDate: Date,
-  github: String,
-  liveUrl: String
-}
-```
-
-### Backlog
-
-```javascript
-{
-  projectId: ObjectId,
-  items: [{
-    title: String,
-    description: String,
-    videoUrl: String,
-    status: String, // Todo, In Progress, Done
-    changes: [{
-      description: String,
-      createdAt: Date
-    }]
-  }]
-}
-```
-
-## 🚀 Start Development
+## Run
 
 ```bash
 npm run dev
 ```
 
-Runs on `http://localhost:5000`
+Server base URL: `http://localhost:5000`
 
-## 🌱 Seed Test Data
+Health check:
 
-Populate the database with demo projects and backlogs:
+- `GET /api/health`
+
+## API Endpoints
+
+### Projects
+
+- `GET /api/projects`
+- `GET /api/projects/:id`
+- `POST /api/projects`
+- `PUT /api/projects/:id`
+- `DELETE /api/projects/:id`
+
+### Backlogs
+
+- `GET /api/backlogs`
+- `GET /api/backlogs/project/:projectId`
+- `POST /api/backlogs`
+- `POST /api/backlogs/:backlogId/items`
+- `PUT /api/backlogs/:backlogId/items/:itemId`
+- `DELETE /api/backlogs/:backlogId/items/:itemId`
+
+Note: There is currently no `/api/stats` endpoint.
+
+## Data Models
+
+### Project
+
+```js
+{
+  name: String,
+  description: String,
+  imageUrl: String | null,
+  videoUrl: String | null,
+  technologies: string[],
+  status: "planning" | "in-progress" | "completed" | "on-hold",
+  startDate?: Date,
+  endDate?: Date,
+  github?: String,
+  liveUrl?: String,
+  createdAt: Date,
+  updatedAt: Date
+}
+```
+
+### Backlog
+
+```js
+{
+  projectId: ObjectId,
+  items: [
+    {
+      title: String,
+      description: String,
+      videoUrl: String | null,
+      status: "todo" | "in-progress" | "done",
+      changes: [{ change: String, timestamp: Date }],
+      createdAt: Date,
+      updatedAt: Date
+    }
+  ],
+  createdAt: Date,
+  updatedAt: Date
+}
+```
+
+## Seed Test Data
 
 ```bash
 npm run seed:test-data
