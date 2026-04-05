@@ -29,19 +29,19 @@
 }
 
 p {
-  @apply text-base text-base-content;
+  @apply text-base;
 }
 
 p.text-xs {
-  @apply text-xs text-base-content;
+  @apply text-xs;
 }
 
 p.text-sm {
-  @apply text-sm text-base-content;
+  @apply text-sm;
 }
 
 p.text-lg {
-  @apply text-lg text-base-content;
+  @apply text-lg;
 }
 
 @plugin "daisyui/theme" {

@@ -17,7 +17,7 @@ export default function ProjectsSidebar() {
               />
             </div>
           </div>
-          <h2 className="tracking-tight">Lucas Millart</h2>
+          <h3 className="tracking-tight">Lucas Millart</h3>
           <p className="mt-3 text-sm leading-6">
             Concepteur développeur
             <br />

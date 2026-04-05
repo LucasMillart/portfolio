@@ -58,7 +58,7 @@ export default function ProjectsGrid({ projects, error }: ProjectsGridProps) {
                   </span>
                 </div>
                 <div>
-                  <h2 className="tracking-tight">{project.name}</h2>
+                  <h4 className="tracking-tight">{project.name}</h4>
                   <p className="mt-2 max-w-[44ch] text-sm leading-6">
                     {project.description}
                   </p>
