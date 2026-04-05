@@ -1,107 +1,55 @@
 ---
-description: Portfolio Project Instructions for GitHub Copilot
-alwaysApply: true
+description: Portfolio repository-wide Copilot instructions
 applyTo: "**"
 ---
 
-# 💻 Portfolio Project - Copilot Instructions
+# Portfolio - Copilot Instructions
 
 ## Project Overview
 
-Full-stack portfolio (Next.js 15 + Express.js) with project management, backlog tracking, and statistics.
+This repository is a full-stack portfolio platform with project management, backlog tracking, and statistics dashboards.
 
-- **Frontend**: Next.js 15, React 19, TypeScript, Tailwind CSS v4, DaisyUI 5
-- **Backend**: Express.js 5.2, MongoDB, Mongoose
-- **Design**: See `.github/instructions/design.instructions.md` (Curated Canvas theme)
+## Tech Stack
 
-## Project Structure
+- Frontend: Next.js 15, React 19, TypeScript, Tailwind CSS v4, DaisyUI 5
+- Backend: Node.js, Express 5, MongoDB, Mongoose
+- Tooling: ESLint, TypeScript strict checks
+- Design system: Curated Canvas theme and DaisyUI component rules
 
-```
-Portfolio/
-├── frontend/
-│   ├── app/
-│   │   ├── components/       # React components
-│   │   ├── [pages]/          # App Router pages
-│   │   ├── layout.tsx
-│   │   └── globals.css       # Tailwind + DaisyUI themes
-│   └── package.json
-├── backend/
-│   ├── models/               # Mongoose schemas
-│   ├── routes/               # Express routes
-│   └── server.js
-└── .github/
-    ├── instructions/
-    │   ├── design.instructions.md      # Design system rules
-    │   └── daisyui.instructions.md    # DaisyUI v5 components
-    └── copilot-instructions.md        # This file
-```
+## Conventions
 
-## Frontend Development
+- Naming:
+  - React components use PascalCase.
+  - Functions and variables use camelCase.
+  - Constants use UPPER_SNAKE_CASE.
+  - Route folders in Next.js use lowercase and hyphen-separated names.
+- Structure:
+  - Frontend code lives in frontend with App Router pages under frontend/app.
+  - Shared UI components live in frontend/app/components.
+  - Backend API routes live in backend/routes and models in backend/models.
+  - Keep frontend and backend concerns separated.
+- Error handling:
+  - API routes return structured JSON with appropriate HTTP status codes.
+  - Validate external input before database or business logic execution.
+  - Avoid swallowing exceptions; return safe messages and keep diagnostic detail in logs.
 
-### TypeScript & Components
+## Workflow
 
-- All components in `/app/components`, exported as default
-- Use TypeScript interfaces for props
-- Use `next/image` for images, `next/link` for internal navigation
+- Prefer small, focused pull requests with clear scope.
+- Branch naming convention: feature/<short-description>, fix/<short-description>, chore/<short-description>.
+- Use Conventional Commits for commit messages.
+- Ensure linting and tests pass before opening or merging pull requests.
 
-### Styling
+Reference instruction files for detailed standards:
 
-- **Reference**: `.github/instructions/design.instructions.md` for color palette and design rules
-- **Components**: Use DaisyUI classes exclusively (see `.github/instructions/daisyui.instructions.md`)
-- **No custom CSS** unless DaisyUI component doesn't exist
-- **Forbidden**: 1px borders for sectioning (use background color shifts instead)
+- Language guidelines: .github/instructions/typescript.instructions.md
+- Testing: .github/instructions/testing.instructions.md
+- Security: .github/instructions/security.instructions.md
+- Documentation: .github/instructions/documentation.instructions.md
+- Performance: .github/instructions/performance.instructions.md
+- Code review: .github/instructions/code-review.instructions.md
 
-### Theme System
+Project-specific design guidance:
 
-- Themes: `curatedcanvas` (light) and `curatedcanvasdark` (dark)
-- Persisted in localStorage via ThemeToggle & ThemeInitializer
-- HTML `data-theme` attribute controls which theme is active
-
-## Backend Development
-
-### Structure
-
-- **Models**: Mongoose schemas in `/models`
-- **Routes**: Express routers in `/routes`, imported in `server.js`
-- **JSON responses** with proper HTTP status codes
-
-### Environment
-
-```
-MONGODB_URI=mongodb+srv://user:password@cluster.mongodb.net/portfolio
-PORT=5000
-```
-
-## Naming Conventions
-
-- Components: `PascalCase` (e.g., `ProjectCard.tsx`)
-- Pages: lowercase with hyphens
-- Variables/functions: `camelCase`
-- Constants: `UPPER_SNAKE_CASE`
-
-## Common Tasks
-
-### Add a Page
-
-1. Create folder in `/app` (e.g., `/my-page`)
-2. Create `page.tsx` with default export
-
-### Add a Component
-
-1. Create `/app/components/MyComponent.tsx`
-2. Export as default with TypeScript interface
-3. Use DaisyUI classes only
-
-### Add API Route
-
-1. Create `/backend/routes/myroute.js`
-2. Export Express Router
-3. Import and use in `server.js`
-
-## Debugging Checklist
-
-- ✅ TypeScript compiles without errors
-- ✅ ESLint passes (use `next/image`, proper alt text)
-- ✅ Theme toggle persists in localStorage
-- ✅ DaisyUI classes work (verify import in globals.css)
-- ✅ API endpoints match backend routes
+- .github/instructions/design.instructions.md
+- .github/instructions/daisyui.instructions.md
