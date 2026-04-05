@@ -18,11 +18,9 @@ mongoose
 // Routes
 const projectRoutes = require("./routes/projects");
 const backlogRoutes = require("./routes/backlogs");
-const statsRoutes = require("./routes/stats");
 
 app.use("/api/projects", projectRoutes);
 app.use("/api/backlogs", backlogRoutes);
-app.use("/api/stats", statsRoutes);
 
 // Health check
 app.get("/api/health", (req, res) =>
