@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const BacklogItemSchema = new mongoose.Schema(
   {
@@ -41,4 +41,4 @@ const BacklogSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Backlog", BacklogSchema);
+export default mongoose.model("Backlog", BacklogSchema);

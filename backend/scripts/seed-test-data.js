@@ -1,7 +1,6 @@
-const mongoose = require("mongoose");
-
-const Project = require("../models/Project");
-const Backlog = require("../models/Backlog");
+import mongoose from "mongoose";
+import Project from "../models/Project.js";
+import Backlog from "../models/Backlog.js";
 
 async function seed()
 {

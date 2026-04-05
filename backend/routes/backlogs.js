@@ -1,6 +1,7 @@
-const express = require("express");
+import express from "express";
+import Backlog from "../models/Backlog.js";
+
 const router = express.Router();
-const Backlog = require("../models/Backlog");
 
 // GET all backlogs for a project
 router.get("/project/:projectId", async (req, res) =>
@@ -112,4 +113,4 @@ router.delete("/:backlogId/items/:itemId", async (req, res) =>
   }
 });
 
-module.exports = router;
+export default router;

@@ -1,6 +1,8 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const cors = require("cors");
+import express from "express";
+import mongoose from "mongoose";
+import cors from "cors";
+import projectRoutes from "./routes/projects.js";
+import backlogRoutes from "./routes/backlogs.js";
 
 const app = express();
 
@@ -13,10 +15,6 @@ mongoose
   .connect(process.env.MONGODB_URI || "mongodb://localhost:27017/portfolio")
   .then(() => console.log("✅ MongoDB connected"))
   .catch((err) => console.error("❌ MongoDB error:", err));
-
-// Routes
-const projectRoutes = require("./routes/projects");
-const backlogRoutes = require("./routes/backlogs");
 
 app.use("/api/projects", projectRoutes);
 app.use("/api/backlogs", backlogRoutes);

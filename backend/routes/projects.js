@@ -1,6 +1,7 @@
-const express = require("express");
+import express from "express";
+import Project from "../models/Project.js";
+
 const router = express.Router();
-const Project = require("../models/Project");
 
 // GET all projects
 router.get("/", async (req, res) =>
@@ -74,4 +75,4 @@ router.delete("/:id", async (req, res) =>
   }
 });
 
-module.exports = router;
+export default router;
