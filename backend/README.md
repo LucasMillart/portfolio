@@ -6,13 +6,6 @@ Express + MongoDB REST API for projects and backlogs.
 
 Create `backend/.env` (or copy from `backend/.env.example`):
 
-```env
-MONGODB_URI=mongodb+srv://user:password@cluster.mongodb.net/portfolio
-PORT=5000
-CORS_ORIGIN=http://localhost:3000
-NODE_ENV=development
-```
-
 Important:
 
 - `MONGODB_URI` is required. Server startup fails if missing.
