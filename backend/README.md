@@ -5,6 +5,7 @@ Express.js + MongoDB REST API for portfolio management.
 ## 📌 Environment Setup
 
 Create `.env` file:
+
 ```
 MONGODB_URI=mongodb+srv://user:password@cluster.mongodb.net/portfolio
 PORT=5000
@@ -13,6 +14,7 @@ PORT=5000
 ## 🔌 API Endpoints
 
 ### Projects
+
 - `GET /api/projects` — Get all projects
 - `GET /api/projects/:id` — Get project details
 - `POST /api/projects` — Create project
@@ -20,18 +22,21 @@ PORT=5000
 - `DELETE /api/projects/:id` — Delete project
 
 ### Backlogs
+
 - `GET /api/backlogs` — Get all backlogs
-- `GET /api/backlogs/:projectId` — Get backlogs for project
+- `GET /api/backlogs/project/:projectId` — Get backlog for a project
 - `POST /api/backlogs` — Create backlog
 - `PUT /api/backlogs/:id` — Update backlog
 - `DELETE /api/backlogs/:id` — Delete backlog
 
 ### Statistics
+
 - `GET /api/stats` — Get portfolio statistics
 
 ## 📊 Database Models
 
 ### Project
+
 ```javascript
 {
   name: String,
@@ -48,6 +53,7 @@ PORT=5000
 ```
 
 ### Backlog
+
 ```javascript
 {
   projectId: ObjectId,
@@ -71,3 +77,11 @@ npm run dev
 ```
 
 Runs on `http://localhost:5000`
+
+## 🌱 Seed Test Data
+
+Populate the database with demo projects and backlogs:
+
+```bash
+npm run seed:test-data
+```

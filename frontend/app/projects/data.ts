@@ -1,28 +1,4 @@
-import type { HeaderAction, NavItem, Project } from "./types";
-
-export const projects: Project[] = [
-  {
-    name: "Planifeo",
-    description:
-      "Application mobile de planification d'entraînement et suivi de performance pour athlètes.",
-    icon: "construction",
-    accent: "bg-[#f3d8c3]",
-  },
-  {
-    name: "NexuStream",
-    description:
-      "Plateforme SaaS de gestion de contenu vidéo en temps réel pour créateurs.",
-    icon: "slideshow",
-    accent: "bg-base-200",
-  },
-  {
-    name: "EchoVault",
-    description:
-      "Interface web sécurisée pour la gestion de mots de passe et documents confidentiels.",
-    icon: "lock",
-    accent: "bg-base-200",
-  },
-];
+import type { HeaderAction, NavItem } from "./types";
 
 export const navItems: NavItem[] = [
   { label: "Projets", href: "#", isActive: true },

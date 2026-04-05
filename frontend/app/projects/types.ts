@@ -1,8 +1,13 @@
 export type Project = {
+  _id: string;
   name: string;
   description: string;
-  icon: string;
-  accent: string;
+  imageUrl?: string | null;
+  videoUrl?: string | null;
+  technologies: string[];
+  status: "planning" | "in-progress" | "completed" | "on-hold";
+  github?: string;
+  liveUrl?: string;
 };
 
 export type HeaderAction = {
