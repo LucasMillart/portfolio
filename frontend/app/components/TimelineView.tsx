@@ -24,8 +24,8 @@ export default function TimelineView({ item }: { item: BacklogItem }) {
       <div className="card-body">
         <div className="flex justify-between items-start">
           <div>
-            <h3 className="card-title text-lg">{item.title}</h3>
-            <p className="text-sm text-gray-500 mt-1">{item.description}</p>
+            <h3 className="card-title">{item.title}</h3>
+            <p className="text-sm mt-1">{item.description}</p>
           </div>
           <span className="badge badge-lg">
             {item.status === "done"
@@ -38,7 +38,7 @@ export default function TimelineView({ item }: { item: BacklogItem }) {
 
         {item.videoUrl && (
           <div className="mt-4">
-            <p className="font-semibold text-sm mb-2">Video Demo:</p>
+            <p className="text-sm mb-2">Video Demo:</p>
             <div className="relative w-full bg-black rounded-lg overflow-hidden">
               <iframe
                 width="100%"
@@ -54,13 +54,13 @@ export default function TimelineView({ item }: { item: BacklogItem }) {
 
         {sortedChanges.length > 0 && (
           <div className="mt-6">
-            <h4 className="font-semibold mb-4">Last Updates</h4>
+            <h4 className="mb-4">Last Updates</h4>
             <ul className="timeline timeline-vertical timeline-snap-icon">
               {sortedChanges.map((change) => (
                 <li key={`${item._id}-${change.timestamp}-${change.change}`}>
                   <div className="timeline-middle text-primary">●</div>
                   <div className="timeline-end timeline-box mb-4 w-full">
-                    <p className="text-xs text-base-content/60">
+                    <p className="text-xs">
                       {new Date(change.timestamp).toLocaleDateString("fr-FR", {
                         year: "numeric",
                         month: "long",

@@ -17,10 +17,8 @@ export default function ProjectsSidebar() {
               />
             </div>
           </div>
-          <h2 className="text-[34px] leading-none font-bold tracking-tight">
-            Lucas Millart
-          </h2>
-          <p className="mt-3 text-sm leading-6 text-base-content/70">
+          <h2 className="tracking-tight">Lucas Millart</h2>
+          <p className="mt-3 text-sm leading-6">
             Concepteur développeur
             <br />
             Info

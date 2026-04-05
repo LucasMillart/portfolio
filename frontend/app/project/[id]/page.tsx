@@ -122,17 +122,15 @@ export default function ProjectDetailPage() {
 
           <div className="flex justify-between items-start gap-4">
             <div>
-              <h1 className="text-4xl font-bold mb-2">{project.name}</h1>
-              <p className="text-lg text-base-content/70 max-w-2xl">
-                {project.description}
-              </p>
+              <h1 className="mb-2">{project.name}</h1>
+              <p className="text-lg max-w-2xl">{project.description}</p>
             </div>
             <div className="badge badge-lg badge-primary">{project.status}</div>
           </div>
 
           {/* Technologies */}
           <div className="mt-6">
-            <h3 className="font-semibold mb-3">Technologies</h3>
+            <h3 className="mb-3">Technologies</h3>
             <div className="flex flex-wrap gap-2">
               {project.technologies.map((tech) => (
                 <span key={tech} className="badge badge-lg">
@@ -191,7 +189,7 @@ export default function ProjectDetailPage() {
 
       {/* Backlog Items Timeline */}
       <div>
-        <h2 className="text-3xl font-bold mb-6">Latest Updates</h2>
+        <h2 className="mb-6">Latest Updates</h2>
         {latestItems.length === 0 ? (
           <div className="alert alert-info">
             <span>No backlog items yet. Start adding tasks!</span>

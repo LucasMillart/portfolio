@@ -65,12 +65,10 @@ export default function ProjectCard({ project }: { project: Project }) {
         )}
         <div className="card-body">
           <div className="flex justify-between items-start gap-2">
-            <h2 className="card-title text-lg">{project.name}</h2>
+            <h2 className="card-title">{project.name}</h2>
             <ProjectStatusBadge status={project.status} />
           </div>
-          <p className="line-clamp-2 text-base-content/70">
-            {project.description}
-          </p>
+          <p className="line-clamp-2">{project.description}</p>
           <ProjectTechnologies technologies={project.technologies} />
           <div className="card-actions justify-end mt-4">
             <button className="btn btn-sm btn-primary">View Details</button>

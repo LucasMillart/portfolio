@@ -26,9 +26,7 @@ export default function ProjectsGrid({ projects, error }: ProjectsGridProps) {
       <p className="text-xs font-bold tracking-[0.2em] text-primary uppercase">
         Mes réalisations
       </p>
-      <h1 className="mt-2 text-4xl font-extrabold tracking-tight">
-        Projets d&apos;Applications
-      </h1>
+      <h1 className="mt-2 tracking-tight">Projets d&apos;Applications</h1>
 
       {error ? (
         <div className="alert alert-error mt-8">
@@ -60,10 +58,8 @@ export default function ProjectsGrid({ projects, error }: ProjectsGridProps) {
                   </span>
                 </div>
                 <div>
-                  <h2 className="text-[28px] leading-7 font-semibold tracking-tight">
-                    {project.name}
-                  </h2>
-                  <p className="mt-2 max-w-[44ch] text-sm leading-6 text-base-content/70">
+                  <h2 className="tracking-tight">{project.name}</h2>
+                  <p className="mt-2 max-w-[44ch] text-sm leading-6">
                     {project.description}
                   </p>
                   <span className="badge badge-outline mt-3">
