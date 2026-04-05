@@ -7,12 +7,22 @@ import backlogRoutes from "./routes/backlogs.js";
 const app = express();
 
 // Middleware
-app.use(cors());
+const CORS_ORIGIN = process.env.CORS_ORIGIN || "http://localhost:3000";
+app.use(cors({
+  origin: CORS_ORIGIN,
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+}));
 app.use(express.json());
 
 // MongoDB Connection
+const MONGODB_URI = process.env.MONGODB_URI;
+if (!MONGODB_URI)
+{
+  throw new Error("MONGODB_URI environment variable is not set");
+}
 mongoose
-  .connect(process.env.MONGODB_URI || "mongodb://localhost:27017/portfolio")
+  .connect(MONGODB_URI)
   .then(() => console.log("✅ MongoDB connected"))
   .catch((err) => console.error("❌ MongoDB error:", err));
 

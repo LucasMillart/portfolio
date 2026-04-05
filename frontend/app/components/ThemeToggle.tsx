@@ -4,13 +4,19 @@ import { useState } from "react";
 
 const LIGHT_THEME = "curatedcanvas";
 const DARK_THEME = "curatedcanvasdark";
+const VALID_THEMES = new Set([LIGHT_THEME, DARK_THEME]);
 
 function isDarkThemeEnabled(): boolean {
   if (typeof window === "undefined") {
     return false;
   }
 
-  return document.documentElement.getAttribute("data-theme") === DARK_THEME;
+  const currentTheme = document.documentElement.getAttribute("data-theme");
+  return (
+    currentTheme &&
+    VALID_THEMES.has(currentTheme) &&
+    currentTheme === DARK_THEME
+  );
 }
 
 function applyTheme(isDark: boolean): void {
