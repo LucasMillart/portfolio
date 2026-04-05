@@ -32,6 +32,18 @@ interface Backlog {
   items: BacklogItem[];
 }
 
+function toEmbedUrl(url: string): string {
+  return url.replace("watch?v=", "embed/");
+}
+
+function sortByLatestUpdate(items: BacklogItem[]): BacklogItem[] {
+  return [...items].sort((a, b) => {
+    const aLatest = a.changes?.[0]?.timestamp || a.createdAt || 0;
+    const bLatest = b.changes?.[0]?.timestamp || b.createdAt || 0;
+    return new Date(bLatest).getTime() - new Date(aLatest).getTime();
+  });
+}
+
 export default function ProjectDetailPage() {
   const params = useParams();
   const projectId = params.id as string;
@@ -84,11 +96,7 @@ export default function ProjectDetailPage() {
   }
 
   const project = backlog.projectId;
-  const latestItems = [...backlog.items].sort((a, b) => {
-    const aLatest = a.changes?.[0]?.timestamp || a.createdAt || 0;
-    const bLatest = b.changes?.[0]?.timestamp || b.createdAt || 0;
-    return new Date(bLatest).getTime() - new Date(aLatest).getTime();
-  });
+  const latestItems = sortByLatestUpdate(backlog.items);
 
   return (
     <div className="container mx-auto px-4 py-12">
@@ -171,7 +179,7 @@ export default function ProjectDetailPage() {
               <iframe
                 width="100%"
                 height="400"
-                src={project.videoUrl.replace("watch?v=", "embed/")}
+                src={toEmbedUrl(project.videoUrl)}
                 title={project.name}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen

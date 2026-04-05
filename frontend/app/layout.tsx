@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "./components/Navbar";
 import ThemeInitializer from "./components/ThemeInitializer";
+
+const inter = Inter({ subsets: ["latin"], display: "swap" });
 
 export const metadata: Metadata = {
   title: "Portfolio - Lucas",
@@ -14,11 +16,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-theme="light">
-      <body>
+    <html lang="fr" data-theme="curatedcanvas">
+      <body className={inter.className}>
         <ThemeInitializer />
-        <Navbar />
-        <main className="min-h-screen bg-base-200">{children}</main>
+        <main className="min-h-screen bg-base-100">{children}</main>
       </body>
     </html>
   );

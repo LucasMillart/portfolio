@@ -2,23 +2,32 @@
 
 import { useState } from "react";
 
-export default function ThemeToggle() {
-  const [isDark, setIsDark] = useState(() => {
-    if (typeof window === "undefined") return false;
-    const htmlElement = document.documentElement;
-    return htmlElement.getAttribute("data-theme") === "curatedcanvasdark";
-  });
+const LIGHT_THEME = "curatedcanvas";
+const DARK_THEME = "curatedcanvasdark";
 
-  const toggleTheme = () => {
-    const htmlElement = document.documentElement;
+function isDarkThemeEnabled(): boolean {
+  if (typeof window === "undefined") {
+    return false;
+  }
+
+  return document.documentElement.getAttribute("data-theme") === DARK_THEME;
+}
+
+function applyTheme(isDark: boolean): void {
+  const htmlElement = document.documentElement;
+  const theme = isDark ? DARK_THEME : LIGHT_THEME;
+
+  htmlElement.setAttribute("data-theme", theme);
+  localStorage.setItem("theme", theme);
+}
+
+export default function ThemeToggle() {
+  const [isDark, setIsDark] = useState<boolean>(isDarkThemeEnabled);
+
+  const toggleTheme = (): void => {
     const newIsDark = !isDark;
-    if (newIsDark) {
-      htmlElement.setAttribute("data-theme", "curatedcanvasdark");
-      localStorage.setItem("theme", "curatedcanvasdark");
-    } else {
-      htmlElement.setAttribute("data-theme", "curatedcanvas");
-      localStorage.setItem("theme", "curatedcanvas");
-    }
+
+    applyTheme(newIsDark);
     setIsDark(newIsDark);
   };
 
