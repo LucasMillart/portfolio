@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-require("dotenv").config();
 
 const Project = require("../models/Project");
 const Backlog = require("../models/Backlog");
