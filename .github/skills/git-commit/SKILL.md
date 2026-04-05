@@ -106,6 +106,12 @@ EOF
 )"
 ```
 
+### 5 Optional: Push Changes
+
+```bash
+git push origin <branch>
+```
+
 ## Best Practices
 
 - One logical change per commit
