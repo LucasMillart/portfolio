@@ -5,7 +5,7 @@ import type { Day } from "@/lib/github";
 
 // Niveaux 0 → 4 : vide puis les 4 tons de la palette pixel ; les plus hauts brillent.
 const LEVEL = [
-  "bg-white/[0.045]",
+  "bg-white/[0.09]",
   "bg-pix-0",
   "bg-pix-1",
   "bg-pix-2 shadow-[0_0_6px_rgb(139_172_15/0.35)]",
@@ -133,7 +133,7 @@ export function CalendarGrid({ days, total }: { days: Day[]; total: number }) {
                     aria-label={`${plural(day.count, "contribution")}, ${fmtLong.format(utc(day.date))}`}
                     onMouseEnter={(e) => show(e.currentTarget, day)}
                     style={{ animationDelay: `${wi * 14}ms` }}
-                    className={`cal-cell aspect-square rounded-[3px] transition-transform duration-150 hover:z-10 hover:scale-125 ${LEVEL[day.level]}`}
+                    className={`cal-cell aspect-square rounded-[4px] transition-transform duration-150 hover:z-10 hover:scale-125 ${LEVEL[day.level]}`}
                   />
                 );
               }),
@@ -158,7 +158,7 @@ export function CalendarGrid({ days, total }: { days: Day[]; total: number }) {
       <div className="mt-5 flex items-center justify-end gap-1.5 text-[11px] text-subtle">
         Moins
         {LEVEL.map((c) => (
-          <span key={c} className={`size-2.5 rounded-[2px] ${c}`} />
+          <span key={c} className={`size-2.5 rounded-[3px] ${c}`} />
         ))}
         Plus
       </div>
