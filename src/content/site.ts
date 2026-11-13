@@ -30,10 +30,5 @@ export type Project = {
 
 /** Tous les projets, dans une seule liste (du plus important au plus petit). */
 export const projects: Project[] = [
-  { name: "Projet Un", description: "Une phrase qui dit ce que fait le projet", href: "#", logo: "🚀" },
-  { name: "Projet Deux", description: "Une phrase qui dit ce que fait le projet", href: "#", logo: "📊" },
-  { name: "Projet Trois", description: "Une phrase qui dit ce que fait le projet", href: "#", logo: "⚡" },
-  { name: "Projet Quatre", description: "Une phrase qui dit ce que fait le projet", href: "#", logo: "🧩" },
-  { name: "Portfolio", description: "Ce site : Next.js, pixel art et calendrier GitHub", href: "https://github.com/LucasMillart/portfolio", logo: "🐼" },
-  { name: "Petit projet", description: "Une phrase qui dit ce que fait le projet", href: "#", logo: "🧪" },
+  { name: "Portfolio", description: "Mon portfolio : qui je suis et ce que je construis", href: "/", logo: "/logos/portfolio.png" },
 ];
