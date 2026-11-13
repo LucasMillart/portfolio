@@ -5,19 +5,15 @@ export type Social = "github" | "linkedin" | "x" | "email";
 export const profile = {
   name: "Lucas Millart",
   avatar: "/avatar.png" as string | null, // ex. "/avatar.png" (mettre l'image dans /public)
-  tagline: "Développeur full-stack. Je construis des produits web, vite et proprement.",
+  tagline: "Développeur en alternance et fan d'athlétisme.",
   // Les segments entre ** ** sont mis en valeur en blanc gras.
-  bio: [
-    "Je construis des produits web de bout en bout, de l'idée à la mise en ligne.",
-    "**À REMPLIR** projets publiés, **À REMPLIR** ans d'expérience.",
-  ],
+  bio: [] as string[],
   email: "contact@exemple.fr",
   github: "LucasMillart", // utilisé pour le calendrier de contributions
   cta: { label: "Me contacter", href: "mailto:contact@exemple.fr" },
   socials: [
     { type: "github", href: "https://github.com/LucasMillart", label: "GitHub" },
     { type: "linkedin", href: "https://www.linkedin.com/", label: "LinkedIn" },
-    { type: "x", href: "https://x.com/", label: "X" },
   ] satisfies { type: Social; href: string; label: string }[],
 };
 

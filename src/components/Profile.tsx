@@ -36,13 +36,15 @@ export function Profile() {
       <h1 className="mt-7 text-3xl font-semibold tracking-tight">{profile.name}</h1>
       <p className="mt-2 text-lg leading-snug text-fg/90">{profile.tagline}</p>
 
-      <div className="mt-5 space-y-3 text-[15px] leading-7 text-muted">
-        {profile.bio.map((line) => (
-          <p key={line}>
-            <Rich text={line} />
-          </p>
-        ))}
-      </div>
+      {profile.bio.length > 0 && (
+        <div className="mt-5 space-y-3 text-[15px] leading-7 text-muted">
+          {profile.bio.map((line) => (
+            <p key={line}>
+              <Rich text={line} />
+            </p>
+          ))}
+        </div>
+      )}
 
       <div className="mt-8 flex items-center gap-2">
         <a

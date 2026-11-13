@@ -36,7 +36,7 @@ Règle : tout est en noir et blanc, sauf les éléments pixel, qui utilisent les
 - **Profil** : avatar, nom, accroche, bio courte, un bouton de contact et des icônes sociales. Minimaliste, sans décor.
 - **Titre de section** : titre, compteur ou lien à droite, filet en dessous. Pas de puce.
 - **Carte d'accueil** : bureau isométrique en voxels (canvas, agrandi par facteur entier) : écran où du code se tape, café qui fume, fenêtre étoilée, panda de dos. Ni localisation ni stack affichées.
-- **Calendrier GitHub** : API officielle (`GITHUB_TOKEN`), cases arrondies en niveaux de gris (du gris foncé au blanc), stats en en-tête, infobulle au survol.
+- **Calendrier GitHub** : API officielle (`GITHUB_TOKEN`), cases carrées collées (1 px d’écart) en niveaux de gris (du gris foncé au blanc), stats en en-tête, infobulle au survol.
 
 ## Mouvement
 
