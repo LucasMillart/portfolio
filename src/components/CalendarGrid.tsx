@@ -6,7 +6,7 @@ import type { Day } from "@/lib/github";
 // Niveaux 0 → 4 : du gris foncé au blanc
 const LEVEL = ["bg-[#262626]", "bg-[#4a4a4a]", "bg-[#737373]", "bg-[#a8a8a8]", "bg-fg"];
 const MONTHS = ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc."];
-const fmtLong = new Intl.DateTimeFormat("fr-FR", { weekday: "long", day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
+const fmtLong = new Intl.DateTimeFormat("fr-FR", { weekday: "long", day: "numeric", month: "long", timeZone: "UTC" });
 
 const utc = (date: string) => new Date(date + "T00:00:00Z");
 const plural = (n: number, word: string) => `${n} ${word}${n > 1 ? "s" : ""}`;
@@ -60,7 +60,7 @@ export function CalendarGrid({ days, total }: { days: Day[]; total: number }) {
     <div ref={box} className="relative">
       <p className="text-muted">
         <strong className="font-semibold text-fg tabular-nums">{total.toLocaleString("fr-FR")}</strong>{" "}
-        contributions sur les 12 derniers mois
+        contributions sur la dernière année
       </p>
 
       {/* Défile horizontalement dans la carte sur petit écran */}
