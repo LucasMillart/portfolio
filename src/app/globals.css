@@ -41,13 +41,6 @@ body {
   color: var(--color-pix-0);
 }
 
-/* Grille de points qui s'estompe, derrière l'avatar */
-.dot-grid {
-  background-image: radial-gradient(rgb(255 255 255 / 0.14) 1px, transparent 1px);
-  background-size: 22px 22px;
-  mask-image: radial-gradient(ellipse at top left, black 10%, transparent 70%);
-}
-
 .pixelated {
   image-rendering: pixelated;
 }

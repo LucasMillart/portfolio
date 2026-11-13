@@ -29,20 +29,12 @@ export type Project = {
   logo: string;
 };
 
-/** Projets phares : grandes cartes */
-export const featured: Project[] = [
+/** Tous les projets, dans une seule liste (du plus important au plus petit). */
+export const projects: Project[] = [
   { name: "Projet Un", description: "Une phrase qui dit ce que fait le projet", href: "#", logo: "🚀" },
   { name: "Projet Deux", description: "Une phrase qui dit ce que fait le projet", href: "#", logo: "📊" },
   { name: "Projet Trois", description: "Une phrase qui dit ce que fait le projet", href: "#", logo: "⚡" },
   { name: "Projet Quatre", description: "Une phrase qui dit ce que fait le projet", href: "#", logo: "🧩" },
-];
-
-/** Autres projets : liste compacte */
-export const others: Project[] = [
-  { name: "Petit projet", description: "Description courte en une ligne", href: "#", logo: "🧪" },
-  { name: "Side project", description: "Description courte en une ligne", href: "#", logo: "🎮" },
-  { name: "Outil interne", description: "Description courte en une ligne", href: "#", logo: "🛠️" },
-  { name: "Expérience", description: "Description courte en une ligne", href: "#", logo: "🌱" },
-  { name: "Script", description: "Description courte en une ligne", href: "#", logo: "📦" },
-  { name: "Prototype", description: "Description courte en une ligne", href: "#", logo: "🧠" },
+  { name: "Portfolio", description: "Ce site : Next.js, pixel art et calendrier GitHub", href: "https://github.com/LucasMillart/portfolio", logo: "🐼" },
+  { name: "Petit projet", description: "Une phrase qui dit ce que fait le projet", href: "#", logo: "🧪" },
 ];

@@ -7,7 +7,7 @@ On s'en inspire, on ne les copie pas : l'identité propre du site, c'est le **pi
 
 - Deux colonnes sur grand écran : **gauche** = profil, fixe au défilement (`sticky`) ; **droite** = contenu qui défile.
 - Une seule colonne sur mobile (profil, puis contenu). Gouttière de 16 px.
-- Largeur max `7xl`, colonne gauche ≤ 18 rem, peu de marge à gauche.
+- Largeur max `7xl`, colonne gauche ≤ 20 rem, peu de marge à gauche.
 
 ## Couleurs (`src/app/globals.css`)
 
@@ -32,7 +32,8 @@ Règle : tout est en noir et blanc, sauf les éléments pixel, qui utilisent les
 ## Composants
 
 - **Carte projet** : logo, titre, une phrase. Toute la carte est un lien. Au survol : elle monte de 2 px, la bordure et le fond s'éclaircissent, une flèche ↗ apparaît. Pas de chiffre de revenus.
-- **Ligne projet** (autres projets) : version compacte, grille de 2 à 3 colonnes.
+- **Projets** : une seule section, tous les projets (gros ou rapides) dans la même carte, grille de 2 colonnes.
+- **Profil** : avatar, nom, accroche, bio courte, un bouton de contact et des icônes sociales. Minimaliste, sans décor.
 - **Titre de section** : titre, compteur ou lien à droite, filet en dessous. Pas de puce.
 - **Carte d'accueil** : bureau isométrique en voxels (canvas, agrandi par facteur entier) : écran où du code se tape, café qui fume, fenêtre étoilée, panda de dos. Ni localisation ni stack affichées.
 - **Calendrier GitHub** : API officielle (`GITHUB_TOKEN`), cases arrondies en niveaux de gris (du gris foncé au blanc), stats en en-tête, infobulle au survol.

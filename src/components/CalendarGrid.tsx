@@ -7,7 +7,6 @@ import type { Day } from "@/lib/github";
 const LEVEL = ["bg-[#262626]", "bg-[#4a4a4a]", "bg-[#737373]", "bg-[#a8a8a8]", "bg-fg"];
 const MONTHS = ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc."];
 const fmtLong = new Intl.DateTimeFormat("fr-FR", { weekday: "long", day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
-const fmtShort = new Intl.DateTimeFormat("fr-FR", { day: "numeric", month: "short", timeZone: "UTC" });
 
 const utc = (date: string) => new Date(date + "T00:00:00Z");
 const plural = (n: number, word: string) => `${n} ${word}${n > 1 ? "s" : ""}`;
@@ -20,26 +19,10 @@ function toWeeks(days: Day[]) {
   return weeks;
 }
 
-function stats(days: Day[]) {
-  let longest = 0, run = 0;
-  for (const d of days) {
-    run = d.count > 0 ? run + 1 : 0;
-    longest = Math.max(longest, run);
-  }
-  // Série actuelle : on tolère un jour vide aujourd'hui (la journée n'est pas finie)
-  let current = 0;
-  let i = days.length - 1;
-  if (i >= 0 && days[i].count === 0) i--;
-  for (; i >= 0 && days[i].count > 0; i--) current++;
-  const best = days.reduce((a, b) => (b.count > a.count ? b : a), days[0]);
-  return { longest, current, best };
-}
-
 type Tip = { day: Day; x: number; y: number };
 
 export function CalendarGrid({ days, total }: { days: Day[]; total: number }) {
   const weeks = toWeeks(days);
-  const { longest, current, best } = stats(days);
   const box = useRef<HTMLDivElement>(null);
   const [tip, setTip] = useState<Tip | null>(null);
   const [reveal, setReveal] = useState(false);
@@ -73,31 +56,15 @@ export function CalendarGrid({ days, total }: { days: Day[]; total: number }) {
   };
 
   const cols = { gridTemplateColumns: `repeat(${weeks.length}, minmax(0, 1fr))` };
-  const items = [
-    { label: "Plus longue série", value: plural(longest, "jour") },
-    { label: "Série en cours", value: plural(current, "jour") },
-    { label: "Meilleur jour", value: best.count > 0 ? `${best.count} · ${fmtShort.format(utc(best.date))}` : "—" },
-  ];
-
   return (
     <div ref={box} className="relative">
-      <div className="flex flex-wrap items-end justify-between gap-x-10 gap-y-5">
-        <div>
-          <p className="text-4xl font-bold tracking-tight tabular-nums">{total.toLocaleString("fr-FR")}</p>
-          <p className="mt-1 text-sm text-muted">contributions sur les 12 derniers mois</p>
-        </div>
-        <dl className="flex flex-wrap gap-x-8 gap-y-3">
-          {items.map((s) => (
-            <div key={s.label}>
-              <dt className="text-xs text-subtle">{s.label}</dt>
-              <dd className="mt-0.5 font-semibold tabular-nums">{s.value}</dd>
-            </div>
-          ))}
-        </dl>
-      </div>
+      <p className="text-muted">
+        <strong className="font-semibold text-fg tabular-nums">{total.toLocaleString("fr-FR")}</strong>{" "}
+        contributions sur les 12 derniers mois
+      </p>
 
       {/* Défile horizontalement dans la carte sur petit écran */}
-      <div className="-mx-1 mt-7 overflow-x-auto px-1 pt-1 pb-1">
+      <div className="-mx-1 mt-6 overflow-x-auto px-1 pt-1 pb-1">
         <div className="grid min-w-[640px] grid-cols-[auto_1fr] gap-x-3">
           <div />
           <div className="grid gap-1 pb-2 text-[11px] text-subtle" style={cols}>

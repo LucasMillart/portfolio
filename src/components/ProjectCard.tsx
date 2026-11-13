@@ -1,13 +1,12 @@
 import type { Project } from "@/content/site";
 
-export function Logo({ logo, size }: { logo: string; size: "md" | "sm" }) {
-  const box = size === "md" ? "size-10 text-xl" : "size-8 text-lg";
+function Logo({ logo }: { logo: string }) {
   if (logo.startsWith("/")) {
     // eslint-disable-next-line @next/next/no-img-element
-    return <img src={logo} alt="" className={`${box} shrink-0 rounded-lg object-cover`} />;
+    return <img src={logo} alt="" className="size-9 shrink-0 rounded-lg object-cover" />;
   }
   return (
-    <span className={`${box} grid shrink-0 place-items-center rounded-lg bg-white/[0.06]`}>
+    <span className="grid size-9 shrink-0 place-items-center rounded-lg bg-white/[0.06] text-lg">
       {logo}
     </span>
   );
@@ -25,43 +24,22 @@ function Arrow() {
   );
 }
 
-const external = (href: string) => href.startsWith("http");
-
-/** Grande carte : projets phares */
+/** Carte projet : logo, titre, une phrase. Toute la carte est un lien. */
 export function ProjectCard({ project }: { project: Project }) {
+  const external = project.href.startsWith("http");
   return (
     <a
       href={project.href}
-      {...(external(project.href) && { target: "_blank", rel: "noreferrer" })}
-      className="group flex flex-col gap-4 rounded-card border border-line bg-card p-5 transition duration-200 hover:-translate-y-0.5 hover:border-line-strong hover:bg-card-hover"
+      {...(external && { target: "_blank", rel: "noreferrer" })}
+      className="group flex items-start gap-4 rounded-card border border-line bg-card p-4 transition duration-200 hover:border-line-strong hover:bg-card-hover"
     >
-      <div className="flex items-center gap-3">
-        <Logo logo={project.logo} size="md" />
-        <h3 className="text-lg font-semibold tracking-tight">{project.name}</h3>
-        <span className="ml-auto">
-          <Arrow />
-        </span>
-      </div>
-      <p className="text-muted">{project.description}</p>
-    </a>
-  );
-}
-
-/** Ligne compacte : autres projets */
-export function ProjectRow({ project }: { project: Project }) {
-  return (
-    <a
-      href={project.href}
-      {...(external(project.href) && { target: "_blank", rel: "noreferrer" })}
-      className="group -m-3 flex gap-3 rounded-xl p-3 transition hover:bg-card"
-    >
-      <Logo logo={project.logo} size="sm" />
-      <div className="min-w-0">
-        <h3 className="flex items-center gap-1 font-semibold">
+      <Logo logo={project.logo} />
+      <div className="min-w-0 flex-1">
+        <h3 className="flex items-center justify-between gap-2 font-semibold tracking-tight">
           {project.name}
           <Arrow />
         </h3>
-        <p className="text-sm leading-relaxed text-muted">{project.description}</p>
+        <p className="mt-0.5 text-sm leading-relaxed text-muted">{project.description}</p>
       </div>
     </a>
   );
