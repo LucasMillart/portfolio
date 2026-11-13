@@ -4,7 +4,7 @@ export type Social = "github" | "linkedin" | "x" | "email";
 
 export const profile = {
   name: "Lucas Millart",
-  avatar: null as string | null, // ex. "/avatar.png" (mettre l'image dans /public)
+  avatar: "/avatar.png" as string | null, // ex. "/avatar.png" (mettre l'image dans /public)
   tagline: "Développeur full-stack. Je construis des produits web, vite et proprement.",
   // Les segments entre ** ** sont mis en valeur en blanc gras.
   bio: [

@@ -27,7 +27,7 @@ export function Profile() {
       <div className="relative">
         {profile.avatar ? (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={profile.avatar} alt="" className="size-24 rounded-full object-cover" />
+          <img src={profile.avatar} alt="Avatar : un panda sprinteur en pixel art" className="size-30 rounded-full object-cover" />
         ) : (
           <PixelPanda className="size-30" />
         )}
