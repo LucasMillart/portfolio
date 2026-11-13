@@ -24,13 +24,7 @@ export async function GitHubCalendar({ username }: { username: string }) {
 
       <div className="rounded-card border border-line bg-card p-5 sm:p-7">
         {data ? (
-          <>
-            <p className="text-muted">
-              <strong className="font-semibold text-fg">{data.total.toLocaleString("fr-FR")}</strong>{" "}
-              contributions sur les 12 derniers mois
-            </p>
-            <CalendarGrid days={data.days} />
-          </>
+          <CalendarGrid days={data.days} total={data.total} />
         ) : (
           <p className="text-muted">Calendrier indisponible pour le moment.</p>
         )}

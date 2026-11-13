@@ -77,3 +77,12 @@ body {
   .group:hover .panda-hop { animation: none; }
 }
 
+
+/* Calendrier GitHub : les cases s'allument colonne par colonne, en paliers */
+.cal-reveal .cal-cell {
+  animation: cal-in 0.36s steps(3) both;
+}
+@keyframes cal-in {
+  from { opacity: 0; transform: scale(0.4); }
+  to { opacity: 1; transform: none; }
+}
