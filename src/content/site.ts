@@ -5,9 +5,12 @@ export type Social = "github" | "linkedin" | "x" | "email";
 export const profile = {
   name: "Lucas Millart",
   avatar: "/avatar.png" as string | null, // ex. "/avatar.png" (mettre l'image dans /public)
-  tagline: "Développeur en alternance et fan d'athlétisme.",
+  tagline: "Développeur et sprinteur.",
   // Les segments entre ** ** sont mis en valeur en blanc gras.
-  bio: [] as string[],
+  bio: [
+    // « 14 ans », « 100 m »… utilisent des espaces insécables pour rester sur la même ligne.
+    'Athlète depuis **14 ans**, sur 60 et 100 m.\nRecord : **7"42 au 60 m**.',
+  ] as string[],
   email: "lucas.millart@gmail.com",
   github: "LucasMillart", // utilisé pour le calendrier de contributions
   cta: { label: "Me contacter", href: "mailto:lucas.millart@gmail.com" },
