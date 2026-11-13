@@ -18,7 +18,7 @@ On s'en inspire, on ne les copie pas : l'identité propre du site, c'est le **pi
 | `line` / `line-strong` | blanc 8 % / 18 % | bordures, bordure au survol |
 | `fg` | `#fafafa` | titres, chiffres en gras |
 | `muted` / `subtle` | `#a3a3a3` / `#6b6b6b` | texte courant / légendes |
-| `pix-0` → `pix-3` | `#0f380f` `#306230` `#8bac0f` `#c4e33a` | **seul accent** : bureau pixel, avatar, calendrier GitHub, sélection |
+| `pix-0` → `pix-3` | `#0f380f` `#306230` `#8bac0f` `#c4e33a` | **seul accent** : bureau pixel, avatar, sélection |
 
 Règle : tout est en noir et blanc, sauf les éléments pixel, qui utilisent les 4 verts. Pas d'autre couleur.
 
@@ -35,7 +35,7 @@ Règle : tout est en noir et blanc, sauf les éléments pixel, qui utilisent les
 - **Ligne projet** (autres projets) : version compacte, grille de 2 à 3 colonnes.
 - **Titre de section** : titre, compteur ou lien à droite, filet en dessous. Pas de puce.
 - **Carte d'accueil** : bureau isométrique en voxels (canvas, agrandi par facteur entier) : écran où du code se tape, café qui fume, fenêtre étoilée, panda de dos. Ni localisation ni stack affichées.
-- **Calendrier GitHub** : API officielle (`GITHUB_TOKEN`), cases carrées dans les 4 verts, infobulle au survol.
+- **Calendrier GitHub** : API officielle (`GITHUB_TOKEN`), cases arrondies en niveaux de gris (du gris foncé au blanc), stats en en-tête, infobulle au survol.
 
 ## Mouvement
 

@@ -3,14 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import type { Day } from "@/lib/github";
 
-// Niveaux 0 → 4 : vide puis les 4 tons de la palette pixel ; les plus hauts brillent.
-const LEVEL = [
-  "bg-white/[0.09]",
-  "bg-pix-0",
-  "bg-pix-1",
-  "bg-pix-2 shadow-[0_0_6px_rgb(139_172_15/0.35)]",
-  "bg-pix-3 shadow-[0_0_10px_rgb(196_227_58/0.55)]",
-];
+// Niveaux 0 → 4 : du gris foncé au blanc
+const LEVEL = ["bg-[#262626]", "bg-[#4a4a4a]", "bg-[#737373]", "bg-[#a8a8a8]", "bg-fg"];
 const MONTHS = ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc."];
 const fmtLong = new Intl.DateTimeFormat("fr-FR", { weekday: "long", day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
 const fmtShort = new Intl.DateTimeFormat("fr-FR", { day: "numeric", month: "short", timeZone: "UTC" });
