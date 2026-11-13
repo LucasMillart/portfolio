@@ -67,20 +67,20 @@ export function CalendarGrid({ days, total }: { days: Day[]; total: number }) {
       <div className="-mx-1 mt-6 overflow-x-auto px-1 pt-1 pb-1">
         <div className="grid min-w-[640px] grid-cols-[auto_1fr] gap-x-3">
           <div />
-          <div className="grid gap-px pb-2 text-[11px] text-subtle" style={cols}>
+          <div className="grid gap-0.5 pb-2 text-[11px] text-subtle" style={cols}>
             {monthLabels.map((label, i) => (
               <span key={i} className="whitespace-nowrap">{label}</span>
             ))}
           </div>
 
-          <div className="grid grid-rows-7 gap-px text-[11px] leading-none text-subtle">
+          <div className="grid grid-rows-7 gap-0.5 text-[11px] leading-none text-subtle">
             {["", "lun.", "", "mer.", "", "ven.", ""].map((d, i) => (
               <span key={i} className="flex items-center">{d}</span>
             ))}
           </div>
 
           <div
-            className={`grid grid-flow-col grid-rows-7 gap-px ${reveal ? "cal-reveal" : ""}`}
+            className={`grid grid-flow-col grid-rows-7 gap-0.5 ${reveal ? "cal-reveal" : ""}`}
             style={cols}
             onMouseLeave={() => setTip(null)}
           >
@@ -94,7 +94,7 @@ export function CalendarGrid({ days, total }: { days: Day[]; total: number }) {
                     aria-label={`${plural(day.count, "contribution")}, ${fmtLong.format(utc(day.date))}`}
                     onMouseEnter={(e) => show(e.currentTarget, day)}
                     style={{ animationDelay: `${wi * 14}ms` }}
-                    className={`cal-cell aspect-square transition-transform duration-150 hover:z-10 hover:scale-125 ${LEVEL[day.level]}`}
+                    className={`cal-cell aspect-square rounded-[3px] transition-transform duration-150 hover:z-10 hover:scale-125 ${LEVEL[day.level]}`}
                   />
                 );
               }),
@@ -119,7 +119,7 @@ export function CalendarGrid({ days, total }: { days: Day[]; total: number }) {
       <div className="mt-5 flex items-center justify-end gap-1.5 text-[11px] text-subtle">
         Moins
         {LEVEL.map((c) => (
-          <span key={c} className={`size-2.5 ${c}`} />
+          <span key={c} className={`size-2.5 rounded-[2px] ${c}`} />
         ))}
         Plus
       </div>

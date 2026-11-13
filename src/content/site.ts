@@ -8,12 +8,12 @@ export const profile = {
   tagline: "Développeur en alternance et fan d'athlétisme.",
   // Les segments entre ** ** sont mis en valeur en blanc gras.
   bio: [] as string[],
-  email: "contact@exemple.fr",
+  email: "lucas.millart@gmail.com",
   github: "LucasMillart", // utilisé pour le calendrier de contributions
-  cta: { label: "Me contacter", href: "mailto:contact@exemple.fr" },
+  cta: { label: "Me contacter", href: "mailto:lucas.millart@gmail.com" },
   socials: [
     { type: "github", href: "https://github.com/LucasMillart", label: "GitHub" },
-    { type: "linkedin", href: "https://www.linkedin.com/", label: "LinkedIn" },
+    { type: "linkedin", href: "https://www.linkedin.com/in/lucas-millart/", label: "LinkedIn" },
   ] satisfies { type: Social; href: string; label: string }[],
 };
 
