@@ -34,7 +34,7 @@ export function Profile() {
       )}
 
       <h1 className="mt-7 text-3xl font-semibold tracking-tight">{profile.name}</h1>
-      <p className="mt-2 text-lg leading-snug text-fg/90">{profile.tagline}</p>
+      <p className="mt-3 text-xl leading-snug text-fg/90">{profile.tagline}</p>
 
       {profile.bio.length > 0 && (
         <div className="mt-5 space-y-3 text-[15px] leading-7 text-muted">
